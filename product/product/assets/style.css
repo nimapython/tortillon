@@ -1,0 +1,106 @@
+a{
+    text-decoration: none !important;
+}
+
+
+  /* Navbar Styling */
+  .navbar {
+    background-color: #f8f9fa; /* Light background */
+}
+.navbar-brand, .nav-link {
+    color: #343a40 !important; /* Dark text for contrast */
+}
+.navbar-brand:hover, .nav-link:hover {
+    color: #007bff !important; /* Highlight on hover */
+}
+
+/* Product Cards */
+.product-card {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.product-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+.product-img {
+    height: 400px;
+    object-fit: cover;
+}
+.product-card-body {
+    padding: 16px;
+}
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the page takes up full viewport height */
+    margin: 0; /* Remove default margins */
+}
+
+
+/* Footer styling */
+footer {
+    background-color: #f8f9fa; /* Light footer background */
+    color: #6c757d; /* Subtle text color */
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+
+h2 {
+    color: #343a40; /* Dark text for headings */
+}
+
+.btn-primary {
+    background-color: #353637; /* Custom blue */
+    width: 200px;
+}
+
+.btn-primary:hover {
+    background-color: #474849;
+}
+
+
+
+input[type="number"] {
+    max-width: 80px;
+}
+
+
+
+.table th {
+    color: black;
+    font-weight: bold;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table img {
+    max-width: 100px;
+    height: auto;
+}
+
+
+
+
+
+.text-end h4 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">My Cart</h1>
+
+    {% if cart_items %}
+    <div class="table-responsive">
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td><img src="{{ item.product.imageURL }}" alt="{{ item.product.name }}" style="width: 100px; height: auto;"></td>
+
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹{{ item.product.price }}</td>
+                    <td>₹{{ item.get_total_price }}</td>
+                    <td>
+                        <form action="{% url 'delete' item.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" style="border:none; background-color:transparent;">
+                                <i class="fa-regular fa-trash-can"></i> 
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-end mt-4">
+        <h4>Total: ₹{{ grand_total }}</h4>
+        <div>
+            <form action="{% url 'place_order' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-dark btn-lg">Place Order</button>
+            </form>
+                </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning mt-4 text-center">
+        Your cart is empty.
+    </div>
+    {% endif %}
+</div>
+{% for msg in messages %}
+{{ msg }}
+{% endfor %}
+
+{% endblock %}
